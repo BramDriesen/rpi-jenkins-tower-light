@@ -10,3 +10,9 @@ Below you will find the details of the components used, the layout and elictrica
 [schematic here]
 
 [End result here]
+
+Setup:
+You will need to install the jenkinsapi first.
+
+apt-get install python-jenkinsapi
+
