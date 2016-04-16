@@ -15,26 +15,37 @@ from jenkinsapi.jenkins import Jenkins
 # Set the GPIO mode.
 GPIO.setmode(GPIO.BCM)
 
+# Get a gpio code for an string
+# Set the correct GPIO's for your situation
+def getcode(value):
+    value = value.lower()
+    return {
+        'red': 18,
+        'buzzer': 23,
+        'yellow': 24,
+        'green': 27,
+    }.get(value, 24)
+
 # GPIO Setup
-# 18 = Red
-# 23 = Buzzer
-# 24 = Yellow
-# 27 = Green
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
-GPIO.setup(27, GPIO.OUT)
+GPIO.setup(getcode('red'), GPIO.OUT)
+GPIO.setup(getcode('buzzer'), GPIO.OUT)
+GPIO.setup(getcode('yellow'), GPIO.OUT)
+GPIO.setup(getcode('green'), GPIO.OUT)
+
+# Global variables
+building = False
+error = False
 
 # ---------------------------------------------------- #
-# --         All globally uesd functions            -- #
+# --         All globally used functions            -- #
 # ---------------------------------------------------- #
 
 # Function to toggle everything off
 def alloff():
-    GPIO.output(18, False)
-    GPIO.output(23, False)
-    GPIO.output(24, False)
-    GPIO.output(27, False)
+    GPIO.output(getcode('red'), False)
+    GPIO.output(getcode('buzzer'), False)
+    GPIO.output(getcode('yellow'), False)
+    GPIO.output(getcode('green'), False)
     return
 
 # Toggle function with parameter output and duration
@@ -45,27 +56,20 @@ def toggle(gpio, duration):
     time.sleep(duration)
     return
 
-# Switch on/of
-def onoff(gpio):
-    alloff()
-    GPIO.output(gpio, True)
-    return
-
 # Set according to status
 def setstatus(build):
     if build != "":
         status = build.get_status()
-
+        alloff()
         if status == "SUCCESS":
-            onoff(27)
+            GPIO.output(getcode('green'), True)
 
         if status == "UNSTABLE":
-            onoff(24)
+            GPIO.output(getcode('yellow'), True)
 
         if status == "FAILURE":
-            onoff(18)
+            GPIO.output(getcode('red'), True)
     return
-        
 
 # ---------------------------------------------------- #
 
@@ -73,31 +77,53 @@ def setstatus(build):
 alloff()
 
 # Toggle everything once
-toggle(23, .1)
-toggle(18, .2)
-toggle(24, .2)
-toggle(27, .2)
+toggle(getcode('buzzer'), .1)
+toggle(getcode('red'), .2)
+toggle(getcode('yellow'), .2)
+toggle(getcode('green'), .2)
 
 # Configure the Jenkins parameter and get the job
 J = Jenkins('http://jenkinscap.cloudapp.net:8080', username="rpi", password="")
-job = J.get_job("UTC Behat")
-
-# Get the status of the latest build before starting the threads
-latestbuild = job.get_last_build()
-setstatus(latestbuild)
+try:
+    job = J.get_job("UTC Behat")
+    # Get the status of the latest build before starting the threads
+    latestbuild = job.get_last_build()
+    setstatus(latestbuild)
+except IOError:
+    global error
+    error = True
+    print "IOERROR"
+except ValueError:
+    global error
+    error = True
+    print "Value Error"
+except:
+    global error
+    error = True
+    print "Could not connect to Jenkins, please check your internet connection and settings"
+else:
+    global error
+    print "No error?"
+    error = False
 
 # Thread the blinking function
-building = False
-
 # Every 10s blink for 3s when we are building
 def blinking():
     threading.Timer(10.0, blinking).start()
     # Only blink when we are actually building
-    if building == True:
+    if building == True or error == True:
+        # If error, blink red.
+        if error == True:
+            color = "red"
+        else:
+            color = "yellow"
+
         alloff()
-        GPIO.output(24, True)
+        pin = getcode(color)
+
+        GPIO.output(pin, True)
         time.sleep(3)
-        GPIO.output(24, False)    
+        GPIO.output(pin, False)
 
 # Check every 10s if we are building, if not or done get latest status     
 def buildrunning():
@@ -112,7 +138,6 @@ def buildrunning():
         setstatus(job.get_last_build())
 
 # Initiate the threads
-buildrunning()
 blinking()
-
-
+if error == False:
+    buildrunning()
