@@ -3,12 +3,19 @@ Python script to control a 12V LED Tower light using a Raspberry Pi. This projec
 
 The basic program will use 4 GPIO outputs to send a signal to a the made board to switch 12V. More details about the board can be found below. Ofcourse if you would like to add functionallity more and/or other GPIO outputs will be used.
 
+At the moment this project only needs to monitor a single project. In the future I will implement the option to support the monitoring of multiple projects.
+
 ## Installation
 Install the Python [Jenkinsapi][1] package: `sudo apt-get install python-jenkinsapi`
 
 Clone the project in your favourite direcotory with: `git clone https://github.com/BramDriesen/rpi-jenkins-tower-light.git`
 
-Edit the configuration file with your Jenkins URL, Username and Password (TODO)
+Edit the configuration file with your Jenkins URL, Username and Password:
+```py
+jenkinsurl = "http://example-url.com:8080"
+username = "your-username"
+password = "your-password"
+```
 
 Edit the crontab configuration so the script starts at every reboot/start-up:
 ```sh
@@ -34,10 +41,12 @@ Below you will find the details of the components used, the layout and elictrica
 
 [end result here]
 
+Schematics and fritzing files can be found in the folder `/fritzing`.
+
 ## Version information
 
 ### Features to add / Todo list
-- [ ] Load settings from a config file
+- [x] Load settings from a config file
 - [ ] Web interface to configure the settings
 - [ ] Code improvements
 - [ ] Multiple projects support
@@ -45,4 +54,8 @@ Below you will find the details of the components used, the layout and elictrica
 ### Extra information
 The python script has been tested on a Raspberry Pi 3 and Zero using Raspbian Jessie `4.1`.
 
+The tower light I am using can be bought from [Adafruit][2] or other resellers that handle Adafruit products like [Pimoroni][3] where I got mine. You can probably also use other tpyes of tower lights but be careful with operating voltages since most of the tower lights are ment for industrial applications.
+
 [1]: https://pypi.python.org/pypi/jenkinsapi
+[2]: https://www.adafruit.com/products/2993
+[3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
