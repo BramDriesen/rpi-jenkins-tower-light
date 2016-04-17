@@ -11,6 +11,7 @@ import time
 import threading
 import jenkinsapi
 from jenkinsapi.jenkins import Jenkins
+import config as cfg
 
 # Set the GPIO mode.
 GPIO.setmode(GPIO.BCM)
@@ -83,7 +84,8 @@ toggle(getcode('yellow'), .2)
 toggle(getcode('green'), .2)
 
 # Configure the Jenkins parameter and get the job
-J = Jenkins('http://jenkinscap.cloudapp.net:8080', username="rpi", password="")
+J = Jenkins(cfg.jenkinsurl, username=cfg.username, password=cfg.password)
+
 try:
     job = J.get_job("UTC Behat")
     # Get the status of the latest build before starting the threads

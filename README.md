@@ -36,10 +36,11 @@ Below you will find the details of the components used, the layout and elictrica
 
 ## Version information
 
-### Features to add
-- Web interface to configure the settings
-- Code improvements
-- Multiple projects support
+### Features to add / Todo list
+- [ ] Load settings from a config file
+- [ ] Web interface to configure the settings
+- [ ] Code improvements
+- [ ] Multiple projects support
 
 ### Extra information
 The python script has been tested on a Raspberry Pi 3 and Zero using Raspbian Jessie `4.1`.

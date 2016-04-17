@@ -63,3 +63,6 @@ target/
 
 # .idea folder
 .idea/
+
+# Ignore the config file
+config.py
