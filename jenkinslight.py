@@ -90,7 +90,7 @@ def checkJobs():
         except jenkinsapi.custom_exceptions.UnknownJob:
             setError(True)
         else:
-            status = job.get_status()
+            status = job.get_last_build().get_status()
             print status
 
 
