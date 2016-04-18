@@ -78,6 +78,16 @@ def setError(value):
         print "[ERROR] Only supply True or False to the setError function"
 
 
+def checkJobs():
+    jobs = cfg.jobs
+    success = 0
+    unstable = 0
+    failed = 0
+
+    for job in jobs:
+        J.get_job(job)
+
+
 # ---------------------------------------------------- #
 
 # Turn all off if any GPIO is still on
@@ -105,6 +115,8 @@ else:
     job = J.get_job(cfg.jobs[0])
     status = job.get_last_build().get_status()
     setstatus(status)
+    print "testing:"
+    checkJobs()
 
 
 # Thread the blinking function
