@@ -98,9 +98,9 @@ def checkJobs():
             if getstatus == "FAILURE":
                 failed += 1
 
-    if success > 0 and unstable == 0 & failed == 0:
+    if success > 0 and unstable == 0 and failed == 0:
         setstatus('SUCCESS')
-    if unstable > 0 & failed == 0:
+    if unstable > 0 and failed == 0:
         setstatus('UNSTABLE')
     if failed > 0:
         setstatus('FAILURE')
