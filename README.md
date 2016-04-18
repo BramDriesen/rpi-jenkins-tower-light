@@ -61,6 +61,7 @@ Schematics and Fritzing files can be found in the `/fritzing` directory.
 - 4x 220 Ohm resistor
 - 4x Bullet connectors (3mm)
 - 1x Adafruit Perma Proto HAT
+- 1x Adafruit 12V LED Tower light
 - 1x On/Off switch
 - 1x DC Barrel power jack
 - 1x 12V To USB converter
