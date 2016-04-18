@@ -36,7 +36,7 @@ The board is created with a few simple components like 220 Ohm resistors, N-MOSF
 
 Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
-<img scr="images/soon.png" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)" width="80" height="80" />
+<img scr="images/soon.png" width="80" height="80" />
 
 ![Adafruit LED Tower (gif)][i1]
 
