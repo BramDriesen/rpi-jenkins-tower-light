@@ -13,15 +13,9 @@ from requests.exceptions import ConnectionError
 GPIO.setmode(GPIO.BCM)
 
 # Get a gpio code for an string
-# Set the correct GPIO's for your situation
 def getcode(value):
     value = value.lower()
-    return {
-        'red': 18,
-        'buzzer': 23,
-        'yellow': 24,
-        'green': 27,
-    }.get(value, 24)
+    return cfg.gpios.get(value, cfg.gpios.get('red'))
 
 # GPIO Setup
 GPIO.setwarnings(False)
@@ -103,7 +97,7 @@ else:
     print "[INFO] No Jenkins error!"
     setError(False)
     # Get the status of the latest build before starting the threads
-    job = J.get_job("UTC Behat")
+    job = J.get_job(cfg.jobs[0])
     latestbuild = job.get_last_build()
     setstatus(latestbuild)
 
