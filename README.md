@@ -36,9 +36,11 @@ The board is created with a few simple components like 220 Ohm resistors, N-MOSF
 
 Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
-<img src="images/soon.png" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="150" />
-<img src="images/soon.png" alt="Fritzing" title="Fritzing"  width="150" />
-<img src="images/soon.png" alt="End result board" title="End result board"  width="150" />
+<img src="images/soon.png" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="250" />
+
+<img src="images/soon.png" alt="Fritzing" title="Fritzing"  width="250" />
+
+<img src="images/soon.png" alt="End result board" title="End result board"  width="250" />
 
 Schematics and Fritzing files can be found in the folder `/fritzing`.
 
@@ -46,6 +48,7 @@ Schematics and Fritzing files can be found in the folder `/fritzing`.
 
 ### Features to add / Todo list
 - [x] Load settings from a config file
+- [ ] Upload schematics and images
 - [ ] Multiple jobs support
 - [ ] Web interface to configure the settings
 - [ ] Code improvements
