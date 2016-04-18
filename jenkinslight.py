@@ -108,6 +108,7 @@ def checkJobsBuildStatus():
     if failed > 0:
         setstatus('FAILURE')
 
+
 def checkJobsBuilding():
     global building
     jobs = cfg.jobs
@@ -120,7 +121,7 @@ def checkJobsBuilding():
             setError(True)
         else:
             if job.is_running():
-                building +=1
+                building += 1
 
     if building > 0:
         building = True

@@ -88,7 +88,7 @@ Schematics and Fritzing files can be found in the `/fritzing` directory.
 ### Features to add / Todo list
 - [x] Load settings from a config file
 - [x] GPIO Setup in config file so no changes have to be made in the main script
-- [ ] Multiple jobs support
+- [x] Multiple jobs support
 - [ ] Web interface to configure the settings
 - [ ] Database logging + dashboard history
 
