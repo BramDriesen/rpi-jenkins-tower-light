@@ -90,7 +90,6 @@ Schematics and Fritzing files can be found in the `/fritzing` directory.
 - [x] GPIO Setup in config file so no changes have to be made in the main script
 - [ ] Multiple jobs support
 - [ ] Web interface to configure the settings
-- [ ] Code improvements
 - [ ] Database logging + dashboard history
 
 ### Extra information
@@ -101,4 +100,3 @@ The tower light I am using can be bought from [Adafruit][2] or other resellers t
 [1]: https://pypi.python.org/pypi/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
-

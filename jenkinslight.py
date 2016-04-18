@@ -55,9 +55,8 @@ def toggle(gpio, duration):
 
 
 # Set according to status
-def setstatus(build):
-    if build != "":
-        status = build.get_status()
+def setstatus(status):
+    if status != "":
         alloff()
         if status == "SUCCESS":
             GPIO.output(getcode('green'), True)
@@ -104,8 +103,8 @@ else:
     setError(False)
     # Get the status of the latest build before starting the threads
     job = J.get_job(cfg.jobs[0])
-    latestbuild = job.get_last_build()
-    setstatus(latestbuild)
+    status = job.get_last_build().get_status()
+    setstatus(status)
 
 
 # Thread the blinking function
@@ -139,7 +138,8 @@ def buildrunning():
                 building = True
             else:
                 building = False
-                setstatus(job.get_last_build())
+                status = job.get_last_build().get_status()
+                setstatus(status)
 
 
 # Initiate the threads
