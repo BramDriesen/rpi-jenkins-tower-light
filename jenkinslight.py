@@ -84,8 +84,15 @@ def checkJobs():
     unstable = 0
     failed = 0
 
-    for job in jobs:
-        J.get_job(job)
+    for item in jobs:
+        try:
+            job = J.get_job(item)
+        except jenkinsapi.custom_exceptions.UnknownJob:
+            setError(True)
+        else:
+            status = job.get_status()
+            print status
+
 
 
 # ---------------------------------------------------- #
@@ -115,7 +122,7 @@ else:
     job = J.get_job(cfg.jobs[0])
     status = job.get_last_build().get_status()
     setstatus(status)
-    print "testing:"
+
     checkJobs()
 
 
