@@ -72,7 +72,7 @@ def setstatus(build):
 
 def setError(value):
     global error
-    if value is True or value is not False:
+    if value is True or value is False:
         error = value
     else:
         error = True
