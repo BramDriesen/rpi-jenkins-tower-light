@@ -1,4 +1,4 @@
-# Jenkins Pi Status Light
+# Raspberry Pi Tower Light
 Python script to control a 12V LED Tower light using a Raspberry Pi. This project is using custom made circuit board to switch 12V with the GPIO's without damaging them.
 
 The basic program will use 4 GPIO outputs to send a signal to a the made board to switch 12V. More details about the board can be found below. Ofcourse if you would like to add functionality more and/or other GPIO outputs will be used.
@@ -51,11 +51,23 @@ The board is created with a few simple components like 220 Ohm resistors, N-MOSF
 Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
 
-<img src="images/soon.png" alt="Fritzing" title="Fritzing"  width="250" />
+<img src="fritzing/tower-light_bb.png" alt="Fritzing" title="Fritzing"  width="250" />
 
 <img src="images/soon.png" alt="End result board" title="End result board"  width="250" />
 
 Schematics and Fritzing files can be found in the folder `/fritzing`.
+
+#### Components used
+- 4x N-Channel MOSFET (IRLB8721)
+- 4x 220 Ohm resistor
+- 4x Bullet connectors (2mm)
+- 1x Adafruit Perma Proto HAT
+- 1x On/Off switch
+- 1x DC Barrel power jack
+- 1x 12V To USB converter
+- 1x DC 12V Power adapter
+- 22AWG Solid copper wire
+- 26AWG Flexible wire
 
 ## Version information
 - V0.1-RC: Pre release version (current master)
@@ -66,7 +78,6 @@ Schematics and Fritzing files can be found in the folder `/fritzing`.
 ### Features to add / Todo list
 - [x] Load settings from a config file
 - [x] GPIO Setup in config file so no changes have to be made in the main script
-- [ ] Upload schematics and images
 - [ ] Multiple jobs support
 - [ ] Web interface to configure the settings
 - [ ] Code improvements
