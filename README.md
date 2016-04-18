@@ -36,13 +36,9 @@ The board is created with a few simple components like 220 Ohm resistors, N-MOSF
 
 Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
-<img src="images/soon.png" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="80" height="80" />
-
-![Adafruit LED Tower (gif)][i1]
-
-![Fritzing schematic][i2]
-
-![End result board][i3]
+<img src="images/soon.png" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="150" />
+<img src="images/soon.png" alt="Fritzing" title="Fritzing"  width="150" />
+<img src="images/soon.png" alt="End result board" title="End result board"  width="150" />
 
 Schematics and Fritzing files can be found in the folder `/fritzing`.
 
@@ -63,8 +59,4 @@ The tower light I am using can be bought from [Adafruit][2] or other resellers t
 [1]: https://pypi.python.org/pypi/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
-
-[i1]: images/soon.png "Adafruit LED Tower (gif)"
-[i2]: images/soon.png "Fritzing schematic"
-[i3]: images/soon.png "End result board"
 
