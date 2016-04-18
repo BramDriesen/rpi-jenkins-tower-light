@@ -45,9 +45,14 @@ Below you will find the details of the components used, the layout and electrica
 Schematics and Fritzing files can be found in the folder `/fritzing`.
 
 ## Version information
+- V0.1-RC: Pre release version (current master)
+    - Convenient setup file
+    - Support for multiple jobs (todo)
+    - Catching Jenkins connection and authentication errors
 
 ### Features to add / Todo list
 - [x] Load settings from a config file
+- [ ] GPIO Setup in config file so no changes have to be made in the main script
 - [ ] Upload schematics and images
 - [ ] Multiple jobs support
 - [ ] Web interface to configure the settings
