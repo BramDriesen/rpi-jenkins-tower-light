@@ -36,7 +36,8 @@ The board is created with a few simple components like 220 Ohm resistors, N-MOSF
 
 Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
-<img scr="http://www.illuminessensce.com/wp-content/uploads/2012/12/Image-Coming-Soon-Placeholder.png" width="80" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)" >
+<img scr="images/soon.png" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)" style="width: 80px;" />
+
 ![Adafruit LED Tower (gif)][i1]
 
 ![Fritzing schematic][i2]
@@ -63,7 +64,7 @@ The tower light I am using can be bought from [Adafruit][2] or other resellers t
 [2]: https://www.adafruit.com/products/2993
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
 
-[i1]: http://www.illuminessensce.com/wp-content/uploads/2012/12/Image-Coming-Soon-Placeholder.png "Adafruit LED Tower (gif)"
-[i2]: http://www.illuminessensce.com/wp-content/uploads/2012/12/Image-Coming-Soon-Placeholder.png "Fritzing schematic"
-[i3]: http://www.illuminessensce.com/wp-content/uploads/2012/12/Image-Coming-Soon-Placeholder.png "End result board"
+[i1]: images/soon.png "Adafruit LED Tower (gif)"
+[i2]: images/soon.png "Fritzing schematic"
+[i3]: images/soon.png "End result board"
 
