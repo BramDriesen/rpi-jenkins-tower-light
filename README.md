@@ -5,7 +5,7 @@ The basic program will use 4 GPIO outputs to send a signal to a the made board t
 
 At the moment this project only needs to monitor a single project. In the future I will implement the option to support the monitoring of multiple projects.
 
-<img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="200" />
+<img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
 
 ## Installation
 Install the Python [Jenkinsapi][1] package:
@@ -51,7 +51,7 @@ The board is created with a few simple components like 220 Ohm resistors, N-MOSF
 Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
 
-<img src="fritzing/tower-light_bb.png" alt="Fritzing" title="Fritzing"  width="250" />
+<img src="fritzing/tower-light_bb.png" alt="Fritzing" title="Fritzing"  width="450" />
 
 <img src="images/soon.png" alt="End result board" title="End result board"  width="250" />
 
@@ -60,12 +60,15 @@ Schematics and Fritzing files can be found in the folder `/fritzing`.
 #### Components used
 - 4x N-Channel MOSFET (IRLB8721)
 - 4x 220 Ohm resistor
-- 4x Bullet connectors (2mm)
+- 4x Bullet connectors (3mm)
 - 1x Adafruit Perma Proto HAT
 - 1x On/Off switch
 - 1x DC Barrel power jack
 - 1x 12V To USB converter
 - 1x DC 12V Power adapter
+- 1x Project enclosure
+- Velcro tape
+- Heat-shrink tubing
 - 22AWG Solid copper wire
 - 26AWG Flexible wire
 
