@@ -93,14 +93,14 @@ def checkJobs():
             getstatus = job.get_last_build().get_status()
             if getstatus == "SUCCESS":
                 success += 1
+                continue
             if getstatus == "UNSTABLE":
                 unstable += 1
+                continue
             if getstatus == "FAILURE":
                 failed += 1
-    print success
-    print unstable
-    print failed
-    
+                continue
+
     if success > 0 and unstable == 0 and failed == 0:
         setstatus('SUCCESS')
     if unstable > 0 and failed == 0:
@@ -132,10 +132,6 @@ else:
     print "[INFO] No Jenkins error!"
     setError(False)
     # Get the status of the latest build before starting the threads
-    job = J.get_job(cfg.jobs[0])
-    status = job.get_last_build().get_status()
-    setstatus(status)
-
     checkJobs()
 
 
