@@ -5,6 +5,8 @@ The basic program will use 4 GPIO outputs to send a signal to a the made board t
 
 At the moment this project only needs to monitor a single project. In the future I will implement the option to support the monitoring of multiple projects.
 
+<img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="200" />
+
 ## Installation
 Install the Python [Jenkinsapi][1] package: `sudo apt-get install python-jenkinsapi`
 
@@ -36,7 +38,6 @@ The board is created with a few simple components like 220 Ohm resistors, N-MOSF
 
 Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
-<img src="images/tower.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="250" />
 
 <img src="images/soon.png" alt="Fritzing" title="Fritzing"  width="250" />
 
