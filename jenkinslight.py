@@ -78,7 +78,7 @@ def setError(value):
         print "[ERROR] Only supply True or False to the setError function"
 
 
-def checkJobs():
+def checkJobsBuildStatus():
     jobs = cfg.jobs
     success = 0
     unstable = 0
@@ -108,6 +108,27 @@ def checkJobs():
     if failed > 0:
         setstatus('FAILURE')
 
+def checkJobsBuilding():
+    global building
+    jobs = cfg.jobs
+    building = 0
+
+    for item in jobs:
+        try:
+            job = J.get_job(item)
+        except jenkinsapi.custom_exceptions.UnknownJob:
+            setError(True)
+        else:
+            if job.is_running():
+                building +=1
+
+    if building > 0:
+        building = True
+    else:
+        building = False
+        checkJobsBuildStatus()
+
+
 # ---------------------------------------------------- #
 
 # Turn all off if any GPIO is still on
@@ -132,7 +153,7 @@ else:
     print "[INFO] No Jenkins error!"
     setError(False)
     # Get the status of the latest build before starting the threads
-    checkJobs()
+    checkJobsBuildStatus()
 
 
 # Thread the blinking function
@@ -161,13 +182,7 @@ def buildrunning():
     if keepalive:
         threading.Timer(10.0, buildrunning).start()
         if not error:
-            global building
-            if job.is_running():
-                building = True
-            else:
-                building = False
-                status = job.get_last_build().get_status()
-                setstatus(status)
+            checkJobsBuilding()
 
 
 # Initiate the threads
