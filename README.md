@@ -48,14 +48,13 @@ sudo reboot
 ## Circuit Board
 The board is created with a few simple components like 220 Ohm resistors, N-MOSFET's and an Adafruit Perma Proto board hat for the Raspberry pi.
 
-Below you will find the details of the components used, the layout and electrical schema as well as the end result.
-
+Below you will see the component layout in Fritzing as well as the end result. I re-created the Perma Proto HAT board in Fritzing to have an accurate image of the component layout.
 
 <img src="fritzing/tower-light_bb.png" alt="Fritzing" title="Fritzing"  width="450" />
 
 <img src="images/soon.png" alt="End result board" title="End result board"  width="250" />
 
-Schematics and Fritzing files can be found in the folder `/fritzing`.
+Schematics and Fritzing files can be found in the `/fritzing` directory.
 
 #### Components used
 - 4x N-Channel MOSFET (IRLB8721)
