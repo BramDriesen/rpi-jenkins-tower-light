@@ -5,6 +5,8 @@ The basic program will use 4 GPIO outputs to send a signal to a the made board t
 
 At the moment this project only needs to monitor a single project. In the future I will implement the option to support the monitoring of multiple projects.
 
+If you don't need to switch 12V you can still use this project to control 3V leds with the GPIO pins.
+
 <img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
 
 ## Installation
