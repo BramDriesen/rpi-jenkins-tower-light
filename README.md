@@ -8,16 +8,28 @@ At the moment this project only needs to monitor a single project. In the future
 <img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="200" />
 
 ## Installation
-Install the Python [Jenkinsapi][1] package: `sudo apt-get install python-jenkinsapi`
+Install the Python [Jenkinsapi][1] package:
+```sh
+sudo apt-get install python-jenkinsapi
+```
 
-Clone the project in your favourite direcotory with: `git clone https://github.com/BramDriesen/rpi-jenkins-tower-light.git`
+Clone the project in your preferred directory with:
+```sh
+git clone https://github.com/BramDriesen/rpi-jenkins-tower-light.git
+```
 
-Edit the configuration file with your Jenkins URL, Username and Password:
+Edit the configuration file with your Jenkins URL, Username and Password. Set the jobs to be monitored and change the GPIO outputs if needed:
 ```py
 jenkinsurl = "http://example-url.com:8080"
 username = "your-username"
 password = "your-password"
 jobs = ['job-name-1', 'job-name-2']
+gpios = {
+    'red': 18,
+    'buzzer': 23,
+    'yellow': 24,
+    'green': 27,
+}
 ```
 
 Edit the crontab configuration so the script starts at every reboot/start-up:
@@ -28,7 +40,7 @@ Using your cursor keys scroll to the bottom and add the following line :
 ```sh
 @reboot python /path/to/the/script/rpi-jenkins-tower-light/jenkinslight.py &
 ```
-Reboot your Raspberry Pi
+Reboot your Raspberry Pi:
 ```sh
 sudo reboot
 ```
