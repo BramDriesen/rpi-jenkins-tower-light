@@ -12,10 +12,12 @@ from requests.exceptions import ConnectionError
 # Set the GPIO mode.
 GPIO.setmode(GPIO.BCM)
 
-# Get a gpio code for an string
+
+# Get a GPIO code for an string
 def getcode(value):
     value = value.lower()
     return cfg.gpios.get(value, cfg.gpios.get('red'))
+
 
 # GPIO Setup
 GPIO.setwarnings(False)
@@ -24,11 +26,11 @@ GPIO.setup(getcode('buzzer'), GPIO.OUT)
 GPIO.setup(getcode('yellow'), GPIO.OUT)
 GPIO.setup(getcode('green'), GPIO.OUT)
 
-
 # Global variables
 building = False
 error = False
 keepalive = True
+
 
 # ---------------------------------------------------- #
 # --         All globally used functions            -- #
@@ -42,6 +44,7 @@ def alloff():
     GPIO.output(getcode('green'), False)
     return
 
+
 # Toggle function with parameter output and duration
 def toggle(gpio, duration):
     GPIO.output(gpio, True)
@@ -49,6 +52,7 @@ def toggle(gpio, duration):
     GPIO.output(gpio, False)
     time.sleep(duration)
     return
+
 
 # Set according to status
 def setstatus(build):
@@ -65,13 +69,15 @@ def setstatus(build):
             GPIO.output(getcode('red'), True)
     return
 
+
 def setError(value):
     global error
-    if value == True or value == False:
+    if value is True or value is not False:
         error = value
     else:
         error = True
         print "[ERROR] Only supply True or False to the setError function"
+
 
 # ---------------------------------------------------- #
 
@@ -101,16 +107,17 @@ else:
     latestbuild = job.get_last_build()
     setstatus(latestbuild)
 
+
 # Thread the blinking function
 # Every 10s blink for 3s when we are building
 def blinking():
-    if keepalive == True:
+    if keepalive:
         threading.Timer(10.0, blinking).start()
 
         # Only blink when we are actually building
-        if building == True or error == True:
+        if building or error:
             # If error, blink red.
-            if error == True:
+            if error:
                 color = "red"
             else:
                 color = "yellow"
@@ -121,31 +128,36 @@ def blinking():
             time.sleep(3)
             GPIO.output(pin, False)
 
-# Check every 10s if we are building, if not or done get latest status     
+
+# Check every 10s if we are building, if not or done get latest status
 def buildrunning():
-    if keepalive == True:
+    if keepalive:
         threading.Timer(10.0, buildrunning).start()
-        if error == False:
+        if not error:
             global building
-            if job.is_running() == True:
+            if job.is_running():
                 building = True
             else:
                 building = False
                 setstatus(job.get_last_build())
 
+
 # Initiate the threads
 blinking()
-if error == False:
+if not error:
     buildrunning()
 
-# Catch the keyboard intterupt and stop the threads from executing
+
+# Catch the keyboard interrupt and stop the threads from executing
 def main():
     global keepalive
-    while keepalive == True:
+    while keepalive:
         try:
             time.sleep(1)
         except KeyboardInterrupt:
-            print "[NOTICE] Jenkinslight terminated!"
+            print "[NOTICE] Jenkins Light terminated!"
             alloff()
             keepalive = False
+
+
 main()
