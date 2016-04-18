@@ -1,7 +1,7 @@
 # Jenkins Pi Status Light
 Python script to control a 12V LED Tower light using a Raspberry Pi. This project is using custom made circuit board to switch 12V with the GPIO's without damaging them.
 
-The basic program will use 4 GPIO outputs to send a signal to a the made board to switch 12V. More details about the board can be found below. Ofcourse if you would like to add functionallity more and/or other GPIO outputs will be used.
+The basic program will use 4 GPIO outputs to send a signal to a the made board to switch 12V. More details about the board can be found below. Ofcourse if you would like to add functionality more and/or other GPIO outputs will be used.
 
 At the moment this project only needs to monitor a single project. In the future I will implement the option to support the monitoring of multiple projects.
 
@@ -33,7 +33,7 @@ sudo reboot
 ## Circuit Board
 The board is created with a few simple components like 220 Ohm resistors, N-MOSFET's and an Adafruit Perma Proto board hat for the Raspberry pi.
 
-Below you will find the details of the components used, the layout and elictrical schema as well as the end result.
+Below you will find the details of the components used, the layout and electrical schema as well as the end result.
 
 [image here]
 
@@ -41,15 +41,16 @@ Below you will find the details of the components used, the layout and elictrica
 
 [end result here]
 
-Schematics and fritzing files can be found in the folder `/fritzing`.
+Schematics and Fritzing files can be found in the folder `/fritzing`.
 
 ## Version information
 
 ### Features to add / Todo list
 - [x] Load settings from a config file
+- [ ] Multiple jobs support
 - [ ] Web interface to configure the settings
 - [ ] Code improvements
-- [ ] Multiple projects support
+- [ ] Database logging + dashboard history
 
 ### Extra information
 The python script has been tested on a Raspberry Pi 3 and Zero using Raspbian Jessie `4.1`.
