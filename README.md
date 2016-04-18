@@ -18,6 +18,11 @@ Clone the project in your preferred directory with:
 git clone https://github.com/BramDriesen/rpi-jenkins-tower-light.git
 ```
 
+Copy the default configuration file to config:
+```sh
+cp default-config.py config.py
+```
+
 Edit the configuration file with your Jenkins URL, Username and Password. Set the jobs to be monitored and change the GPIO outputs if needed:
 ```py
 jenkinsurl = "http://example-url.com:8080"
