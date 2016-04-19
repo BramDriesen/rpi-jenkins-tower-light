@@ -52,8 +52,19 @@ Reboot your Raspberry Pi:
 sudo reboot
 ```
 
+## Light status
+At startup of the scripts all light's and buzzer will be toggled once.
+
+- Solid
+    - Red: Some builds have failed
+    - Yellow: Some builds are unstable
+    - Green: All builds passed
+- Blinking
+    - Red: An error occurred (connection or authentication)
+    - Yellow: One or more jobs are building
+
 ## Circuit Board
-The board is created with a few simple components like 220 Ohm resistors, N-MOSFET's and an Adafruit Perma Proto board hat for the Raspberry pi.
+The board is created with a few simple components like 220 Ohm resistors, N-Channel MOSFET's and an Adafruit Perma Proto board HAT for the Raspberry pi.
 
 Below you will see the component layout in Fritzing as well as the end result. I re-created the Perma Proto HAT board in Fritzing to have an accurate image of the component layout.
 
@@ -95,7 +106,7 @@ Schematics and Fritzing files can be found in the `/fritzing` directory.
 ### Extra information
 The python script has been tested on a Raspberry Pi 3 and Zero using Raspbian Jessie `4.1`.
 
-The tower light I am using can be bought from [Adafruit][2] or other resellers that handle Adafruit products like [Pimoroni][3] where I got mine. You can probably also use other tpyes of tower lights but be careful with operating voltages since most of the tower lights are ment for industrial applications.
+The tower light I am using can be bought from [Adafruit][2] or other resellers that handle Adafruit products like [Pimoroni][3] where I got mine. You can probably also use other types of tower lights but be careful with operating voltages since most of the tower lights are meant for industrial applications.
 
 [1]: https://pypi.python.org/pypi/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
