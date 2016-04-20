@@ -98,12 +98,6 @@ Schematics and Fritzing files can be found in the `/fritzing` directory and all 
 - 22AWG Solid copper wire
 - 26AWG Flexible wire
 
-## Version information
-- V0.1-RC: Pre release version (current master)
-    - Convenient setup file
-    - Support for multiple jobs (todo)
-    - Catching Jenkins connection and authentication errors
-
 ### Features to add / Todo list
 - [x] Load settings from a config file
 - [x] GPIO Setup in config file so no changes have to be made in the main script
