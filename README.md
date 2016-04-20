@@ -39,13 +39,15 @@ gpios = {
 }
 ```
 
-Edit the crontab configuration so the script starts at every reboot/start-up:
+Make sure to enable the setting "Wait for network on boot" in the Raspberry Pi config screen. Use `sudo raspi-config` to go to the settings.
+
+Edit your `rc.local` file to make the script run at boot. Edit it using the command:
 ```sh
-sudo crontab -e
+sudo nano /etc/rc.local
 ```
 Using your cursor keys scroll to the bottom and add the following line :
 ```sh
-@reboot python /path/to/the/script/rpi-jenkins-tower-light/jenkinslight.py &
+python /path/to/the/script/rpi-jenkins-tower-light/jenkinslight.py &
 ```
 Reboot your Raspberry Pi:
 ```sh
@@ -66,13 +68,19 @@ At startup of the scripts all light's and buzzer will be toggled once.
 ## Circuit Board
 The board is created with a few simple components like 220 Ohm resistors, N-Channel MOSFET's and an Adafruit Perma Proto board HAT for the Raspberry pi.
 
-Below you will see the component layout in Fritzing as well as the end result. I re-created the Perma Proto HAT board in Fritzing to have an accurate image of the component layout.
+Below you will see the component layout in Fritzing. I re-created the Perma Proto HAT board so I could have an accurate as possible layout of the component. This made the transfer to the physical board a breeze! Feel free to re-use the board for other projects.
 
 <img src="fritzing/tower-light_bb.png" alt="Fritzing" title="Fritzing"  width="450" />
 
-<img src="images/soon.png" alt="End result board" title="End result board"  width="250" />
+The finished circuit board attached to the Raspberry Pi zero inside of the enclosure.
 
-Schematics and Fritzing files can be found in the `/fritzing` directory.
+<img src="images/board.png" alt="End result board" title="End result board"  width="450" />
+
+The enclosure before closing everything up with all the switches on front. The white calble to the left is the micro-USB to USB with an Ethernet to USB connector plugged in.
+
+<img src="images/enclosure.png" alt="Enclosure" title="Enclosure"  width="450" />
+
+Schematics and Fritzing files can be found in the `/fritzing` directory and all the images in the `/images` directory.
 
 #### Components used
 - 4x N-Channel MOSFET (IRLB8721)
