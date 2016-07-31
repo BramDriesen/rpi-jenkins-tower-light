@@ -1,6 +1,10 @@
 # Raspberry Pi Tower Light
 Python script to control a 12V LED Tower light using a Raspberry Pi. This project is using custom made circuit board to switch 12V with the GPIO's without damaging them.
 
+Featured project in [The MagPi Issue 46][4]!
+
+<img src="images/TheMagPi46.png" alt="Featured in The MagPi Issue 46" title="Featured in The MagPi Issue 46"  width="300" />
+
 The basic program will use 4 GPIO outputs to send a signal to a the made board to switch 12V. More details about the board can be found below. Ofcourse if you would like to add functionality more and/or other GPIO outputs will be used.
 
 At the moment this project only needs to monitor a single project. In the future I will implement the option to support the monitoring of multiple projects.
@@ -113,3 +117,4 @@ The tower light I am using can be bought from [Adafruit][2] or other resellers t
 [1]: https://pypi.python.org/pypi/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
+[4]: https://www.raspberrypi.org/magpi/issues/46/
