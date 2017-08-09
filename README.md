@@ -102,6 +102,9 @@ Schematics and Fritzing files can be found in the `/fritzing` directory and all 
 - 22AWG Solid copper wire
 - 26AWG Flexible wire
 
+### Planned features to add
+- [] Compatibility/new version with the Pimoroni Automation HAT/PHAT
+
 ### Features to add / Todo list
 - [x] Load settings from a config file
 - [x] GPIO Setup in config file so no changes have to be made in the main script
