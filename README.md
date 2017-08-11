@@ -11,7 +11,7 @@ The program will use 4/5 GPIO outputs to send a signal to a the main board to sw
 
 If you don't need to switch 12V you can still use this project without any hardware to control 3V leds with the GPIO pins.
 
-<img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
+<img src="tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
 
 ## Installing
 **TODO**: A install script will be created limiting the use of custom actions like this.
