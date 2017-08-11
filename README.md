@@ -1,15 +1,22 @@
 # Raspberry Pi Tower Light
-Python script to control a 12V LED Tower light using a Raspberry Pi. This project is using custom made circuit board to switch 12V with the GPIO's without damaging them.
+**TODO**: Add logo.
 
-The basic program will use 4 GPIO outputs to send a signal to a the made board to switch 12V. More details about the board can be found below. Ofcourse if you would like to add functionality more and/or other GPIO outputs will be used.
+Python script to control a 12V LED Tower light using a Raspberry Pi.
 
-At the moment this project only needs to monitor a single project. In the future I will implement the option to support the monitoring of multiple projects.
+This project can be used in combination with the Automation HAT/pHAT from Pimoroni. Of course you can still use the original custom circuit board from the first version if you happened to build it to switch 12V with the GPIO's without damaging them. If you are interested in building your own HAT you can take a look in the `diy_hat` directory.
 
-If you don't need to switch 12V you can still use this project to control 3V leds with the GPIO pins.
+**TODO**: To be rewritten.
+
+The program will use 4/5 GPIO outputs to send a signal to a the main board to switch 12V. More details about the board can be found below. Of course if you would like to add functionality more and/or other GPIO outputs will be used.
+
+If you don't need to switch 12V you can still use this project without any hardware to control 3V leds with the GPIO pins.
 
 <img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
 
-## Installation
+## Installing
+**TODO**: A install script will be created limiting the use of custom actions like this.
+
+
 Install the Python [Jenkinsapi][1] package:
 ```sh
 sudo apt-get install python-jenkinsapi
@@ -65,43 +72,9 @@ At startup of the scripts all light's and buzzer will be toggled once.
     - Red: An error occurred (connection or authentication)
     - Yellow: One or more jobs are building
 
-## Circuit Board
-The board is created with a few simple components like 220 Ohm resistors, N-Channel MOSFET's and an Adafruit Perma Proto board HAT for the Raspberry pi.
-
-Below you will see the component layout in Fritzing. I re-created the Perma Proto HAT board so I could have an accurate as possible layout of the component. This made the transfer to the physical board a breeze! Feel free to re-use the board for other projects.
-
-<img src="fritzing/tower-light_bb.png" alt="Fritzing" title="Fritzing"  width="450" />
-
-The finished circuit board attached to the Raspberry Pi zero inside of the enclosure.
-
-<img src="images/board.png" alt="End result board" title="End result board"  width="450" />
-
-The enclosure before closing everything up with all the switches on front. The white calble to the left is the micro-USB to USB with an Ethernet to USB connector plugged in.
-
-<img src="images/enclosure.png" alt="Enclosure" title="Enclosure"  width="450" />
-
-Schematics and Fritzing files can be found in the `/fritzing` directory and all the images in the `/images` directory.
-
-#### Components used
-- 4x N-Channel MOSFET (IRLB8721)
-- 4x 220 Ohm resistor
-- 4x Bullet connectors (3mm)
-- 1x Adafruit Perma Proto HAT
-- 1x Adafruit 12V LED Tower light
-- 1x On/Off switch
-- 1x DC Barrel power jack
-- 1x 12V To USB converter
-- 1x DC 12V Power adapter
-- 1x Project enclosure
-- Velcro tape
-- Heat-shrink tubing
-- 22AWG Solid copper wire
-- 26AWG Flexible wire
-
 ### Features to add / Todo list
-- [x] Load settings from a config file
-- [x] GPIO Setup in config file so no changes have to be made in the main script
-- [x] Multiple jobs support
+- [ ] Improve code (Mainly blinking functions)
+- [ ] Installation script
 - [ ] Web interface to configure the settings
 - [ ] Database logging + dashboard history
 
@@ -113,3 +86,8 @@ The tower light I am using can be bought from [Adafruit][2] or other resellers t
 [1]: https://pypi.python.org/pypi/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
+
+### Special thanks
+A special thanks to the awesome pirates from Pimoroni for supporting this project.
+
+TODO: Pimoroni LOGO here.
