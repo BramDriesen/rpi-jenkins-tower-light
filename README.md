@@ -3,7 +3,9 @@
 
 Python script to control a 12V LED Tower light using a Raspberry Pi.
 
-This project can be used in combination with the Automation HAT/pHAT from Pimoroni. Of course you can still use the original custom circuit board from the first version if you happened to build it to switch 12V with the GPIO's without damaging them. If you are interested in building your own HAT you can take a look in the `diy_hat` directory.
+The script is initially created to control a 12V LED Tower light. The script can either be used with the Automation HAT/pHAT from Pimoroni or with the custom build HAT from the initial release of the script. More information about the custom HAT can be found in the `diy_hat` directory. If you don't need to switch high powered LED's you can still use this project with 3V LED's connected directly to the GPIO pins.   
+
+<img src="autohat_360.png" alt="Automation HAT/pHAT logo" title="Automation HAT/pHAT logo" />
 
 **TODO**: To be rewritten.
 
