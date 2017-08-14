@@ -45,7 +45,7 @@ def toggle(type, index, duration):
 
     function.on()
     time.sleep(duration)
-    function.on().off()
+    function.off()
     return
 
 
