@@ -54,13 +54,13 @@ def set_status(status):
     if status != "":
         all_off()
         if status == "SUCCESS":
-            automationhat.output.three.off()
+            automationhat.output.three.on()
 
         if status == "UNSTABLE":
-            automationhat.output.two.off()
+            automationhat.output.two.on()
 
         if status == "FAILURE":
-            automationhat.output.one.off()
+            automationhat.output.one.on()
     return
 
 
