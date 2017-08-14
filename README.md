@@ -64,7 +64,7 @@ sudo reboot
 ```
 
 ## Light status
-At startup of the scripts all light's and buzzer will be toggled once.
+At startup of the scripts all light's will be toggled once.
 
 - Solid
     - Red: Some builds have failed
@@ -78,7 +78,7 @@ At startup of the scripts all light's and buzzer will be toggled once.
 - [ ] Improve code (Mainly blinking functions)
 - [ ] Installation script
 - [ ] Web interface to configure the settings
-- [ ] Database logging + dashboard history
+- [ ] Find a use case for the buzzer.
 
 ### Extra information
 The python script has been tested on a Raspberry Pi 3 and Zero using Raspbian Jessie `4.1`.
@@ -92,4 +92,4 @@ The tower light I am using can be bought from [Adafruit][2] or other resellers t
 ### Special thanks
 A special thanks to the awesome pirates from Pimoroni for supporting this project.
 
-TODO: Pimoroni LOGO here.
+<img src="pimoroni.png" alt="Pimoroni logo" title="Pimoroni logo" height="100"/>

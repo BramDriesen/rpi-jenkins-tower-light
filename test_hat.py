@@ -6,6 +6,7 @@ import automationhat
 
 if automationhat.is_automation_hat():
     automationhat.light.power.write(1)
+    automationhat.light.comms.write(1)
 
 while True:
     if automationhat.is_automation_hat():
@@ -16,4 +17,4 @@ while True:
 
     print(automationhat.analog.read())
 
-    time.sleep(2)
+    time.sleep(1.5)
