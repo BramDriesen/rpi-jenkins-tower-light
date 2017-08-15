@@ -131,9 +131,9 @@ def check_jobs_building():
 all_off()
 
 # Toggle everything once
-toggle("output", "one", .2)
-toggle("output", "two", .2)
-toggle("output", "three", .2)
+toggle("output", "one", .4)
+toggle("output", "two", .4)
+toggle("output", "three", .4)
 
 # Configure the Jenkins parameter and get the job
 try:
