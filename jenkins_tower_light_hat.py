@@ -16,7 +16,7 @@ from requests.exceptions import ConnectionError
 # -- RED = output.one                               -- #
 # -- YELLOW = output.two                            -- #
 # -- GREEN = output.three                           -- #
-# -- BUZZER = relay.one = unused                    -- #
+# -- BUZZER = relay.one = unused at this moment     -- #
 # ---------------------------------------------------- #
 
 # Global variables
@@ -78,8 +78,16 @@ def set_error(value):
     global error
     if value is True or value is False:
         error = value
+        if value is True:
+            if automationhat.is_automation_hat():
+                automationhat.light.warn.on()
+        else:
+            if automationhat.is_automation_hat():
+                automationhat.light.warn.off()
     else:
         error = True
+        if automationhat.is_automation_hat():
+            automationhat.light.warn.on()
         print("[ERROR] Only supply True or False to the setError function")
 
 
@@ -140,8 +148,13 @@ def check_jobs_building():
 
 
 # ---------------------------------------------------- #
-# Turn all off if any GPIO is still on
+# --            Startup of the script               -- #
+# ---------------------------------------------------- #
+# Turn all off if any inputs are still high
+all_hat_off()
 all_tower_off()
+if automationhat.is_automation_hat():
+    automationhat.light.power.on()
 
 # Toggle everything once
 toggle("output", "one", .4)
@@ -164,7 +177,7 @@ else:
     check_jobs_build_status()
 
 
-# Thread the blinking function
+# Thread for the blinking function
 # Every 10s blink for 3s when we are building
 def blinking():
     if keepAlive:
@@ -207,6 +220,4 @@ def main():
             all_hat_off()
             keepAlive = False
 
-if automationhat.is_automation_hat():
-    automationhat.light.power.on()
 main()
