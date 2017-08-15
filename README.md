@@ -19,9 +19,11 @@ If you don't need to switch 12V you can still use this project without any hardw
 **TODO**: A install script will be created limiting the use of custom actions like this.
 
 
+### Manual installation
+
 Install the Python [Jenkinsapi][1] package:
 ```sh
-sudo apt-get install python-jenkinsapi
+sudo pip install jenkinsapi --upgrade
 ```
 
 Clone the project in your preferred directory with:
@@ -34,7 +36,21 @@ Copy the default configuration file to config:
 cp default-config.py config.py
 ```
 
-Edit the configuration file with your Jenkins URL, Username and Password. Set the jobs to be monitored and change the GPIO outputs if needed:
+Edit the configuration file with your information
+ - Jenkins URL
+ - Username and Password. 
+ - Jobs (needs to be an array, for 1 item the structure looks like this `jobs = ['job-name-1']` )
+ - GPIO outputs (only needed fot the DIY HAT)
+
+#### Configuration file for the **Automation HAT/pHAT**
+```py
+jenkinsurl = "http://example-url.com:8080"
+username = "your-username"
+password = "your-password"
+jobs = ['job-name-1', 'job-name-2']
+```
+
+#### Configuration file for the DIY hat (uses the GPIO directly)
 ```py
 jenkinsurl = "http://example-url.com:8080"
 username = "your-username"
@@ -48,20 +64,29 @@ gpios = {
 }
 ```
 
-Make sure to enable the setting "Wait for network on boot" in the Raspberry Pi config screen. Use `sudo raspi-config` to go to the settings.
+Make sure to enable the setting "Wait for network on boot" in the Raspberry Pi config screen. Use `sudo raspi-config` to go to the settings. Also set the configuration to boot into the terminal.
 
 Edit your `rc.local` file to make the script run at boot. Edit it using the command:
 ```sh
 sudo nano /etc/rc.local
 ```
 Using your cursor keys scroll to the bottom and add the following line :
+
+For the Automation HAT/pHAT:
 ```sh
-python /path/to/the/script/rpi-jenkins-tower-light/jenkinslight.py &
+python /path/to/the/script/rpi-jenkins-tower-light/jenkins_tower_light_hat.py &
 ```
+
+For the DIY HAT
+```sh
+python /path/to/the/script/rpi-jenkins-tower-light/jenkins_tower_light_gpio.py &
+```
+
 Reboot your Raspberry Pi:
 ```sh
 sudo reboot
 ```
+If successful all lights will blink once, and after a few seconds the status should be displayed. Consult the meaning of each light below.
 
 ## Light status
 At startup of the scripts all light's will be toggled once.
@@ -77,19 +102,17 @@ At startup of the scripts all light's will be toggled once.
 ### Features to add / Todo list
 - [ ] Improve code (Mainly blinking functions)
 - [ ] Installation script
-- [ ] Web interface to configure the settings
+- [ ] Web interface to configure the settings (probably not going to do this)
 - [ ] Find a use case for the buzzer.
 
 ### Extra information
-The python script has been tested on a Raspberry Pi 3 and Zero using Raspbian Jessie `4.1`.
-
 The tower light I am using can be bought from [Adafruit][2] or other resellers that handle Adafruit products like [Pimoroni][3] where I got mine. You can probably also use other types of tower lights but be careful with operating voltages since most of the tower lights are meant for industrial applications.
-
-[1]: https://pypi.python.org/pypi/jenkinsapi
-[2]: https://www.adafruit.com/products/2993
-[3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
 
 ### Special thanks
 A special thanks to the awesome pirates from Pimoroni for supporting this project.
 
 <img src="pimoroni.png" alt="Pimoroni logo" title="Pimoroni logo" height="100"/>
+
+[1]: https://github.com/pycontribs/jenkinsapi
+[2]: https://www.adafruit.com/products/2993
+[3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
