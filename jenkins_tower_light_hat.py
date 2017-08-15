@@ -39,14 +39,14 @@ def all_off():
 
 
 # Toggle function with parameter output and duration
-def toggle(type, index, duration):
+def toggle(output_type, index, duration):
     # Create the function based on the parameters
-    result = getattr(automationhat, type)
-    function = getattr(result, index)
+    result = getattr(automationhat, output_type)
+    full_function = getattr(result, index)
 
-    function.on()
+    full_function.on()
     time.sleep(duration)
-    function.off()
+    full_function.off()
     return
 
 
@@ -145,8 +145,8 @@ except ConnectionError:
     set_error(True)
     print("[ERROR] Jenkins connection error!")
 else:
-    print("[INFO] No Jenkins error!")
     set_error(False)
+    print("[INFO] No Jenkins error!")
     # Get the status of the latest build before starting the threads
     check_jobs_build_status()
 
