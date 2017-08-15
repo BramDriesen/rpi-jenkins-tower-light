@@ -1,11 +1,11 @@
 # Raspberry Pi Tower Light
-**TODO**: Add logo.
+<img src="images/jenkins_tower_light_logo.png" alt="Jenkins Tower Light Logo" title="Jenkins Tower Light Logo"  height="100" />
 
 Python script to control a 12V LED Tower light using a Raspberry Pi.
 
 The script is initially created to control a 12V LED Tower light. The script can either be used with the Automation HAT/pHAT from Pimoroni or with the custom build HAT from the initial release of the script. More information about the custom HAT can be found in the `diy_hat` directory. If you don't need to switch high powered LED's you can still use this project with 3V LED's connected directly to the GPIO pins.   
 
-<img src="autohat_360.png" alt="Automation HAT/pHAT logo" title="Automation HAT/pHAT logo" />
+<img src="images/autohat_360.png" alt="Automation HAT/pHAT logo" title="Automation HAT/pHAT logo" />
 
 **TODO**: To be rewritten.
 
@@ -13,7 +13,7 @@ The program will use 4/5 GPIO outputs to send a signal to a the main board to sw
 
 If you don't need to switch 12V you can still use this project without any hardware to control 3V leds with the GPIO pins.
 
-<img src="tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
+<img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
 
 ## Installing
 **TODO**: A install script will be created limiting the use of custom actions like this.
@@ -21,17 +21,22 @@ If you don't need to switch 12V you can still use this project without any hardw
 
 ### Manual installation
 
-Install the Python [Jenkinsapi][1] package:
+Install the [Jenkinsapi][1] Pythin library
 ```sh
 sudo pip install jenkinsapi --upgrade
 ```
 
-Clone the project in your preferred directory with:
+Install the [Automation HAT/pHAT][4] library
+```sh
+curl https://get.pimoroni.com/automationhat | bash
+```
+
+Clone the project in your preferred directory with
 ```sh
 git clone https://github.com/BramDriesen/rpi-jenkins-tower-light.git
 ```
 
-Copy the default configuration file to config:
+Copy the default configuration file to config
 ```sh
 cp default-config.py config.py
 ```
@@ -111,8 +116,9 @@ The tower light I am using can be bought from [Adafruit][2] or other resellers t
 ### Special thanks
 A special thanks to the awesome pirates from Pimoroni for supporting this project.
 
-<img src="pimoroni.png" alt="Pimoroni logo" title="Pimoroni logo" height="100"/>
+<img src="images/pimoroni.png" alt="Pimoroni logo" title="Pimoroni logo" height="100"/>
 
 [1]: https://github.com/pycontribs/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
+[4]: https://github.com/pimoroni/automation-hat
