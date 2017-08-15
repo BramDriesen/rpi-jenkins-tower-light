@@ -30,11 +30,20 @@ keepAlive = True
 
 
 # Function to toggle everything off
-def all_off():
+def all_tower_off():
     automationhat.output.one.off()
     automationhat.output.two.off()
     automationhat.output.three.off()
     automationhat.relay.one.off()
+    return
+
+
+# For the automation HAT, turn of the LED's.
+def all_hat_off():
+    if automationhat.is_automation_hat():
+        automationhat.light.power.off()
+        automationhat.light.comms.off()
+        automationhat.light.warn.off()
     return
 
 
@@ -53,7 +62,7 @@ def toggle(output_type, index, duration):
 # Set according to status
 def set_status(status):
     if status != "":
-        all_off()
+        all_tower_off()
         if status == "SUCCESS":
             automationhat.output.three.on()
 
@@ -75,6 +84,8 @@ def set_error(value):
 
 
 def check_jobs_build_status():
+    if automationhat.is_automation_hat():
+        automationhat.light.comms.on()
     jobs = cfg.jobs
     success = 0
     unstable = 0
@@ -103,6 +114,8 @@ def check_jobs_build_status():
         set_status('UNSTABLE')
     if failed > 0:
         set_status('FAILURE')
+    if automationhat.is_automation_hat():
+        automationhat.light.comms.off()
 
 
 def check_jobs_building():
@@ -128,7 +141,7 @@ def check_jobs_building():
 
 # ---------------------------------------------------- #
 # Turn all off if any GPIO is still on
-all_off()
+all_tower_off()
 
 # Toggle everything once
 toggle("output", "one", .4)
@@ -161,10 +174,10 @@ def blinking():
         if building or error:
             # If error, blink red.
             if error:
-                all_off()
+                all_tower_off()
                 toggle("output", "one", 3)
             else:
-                all_off()
+                all_tower_off()
                 toggle("output", "two", 3)
 
 
@@ -190,8 +203,10 @@ def main():
             time.sleep(1)
         except KeyboardInterrupt:
             print("[NOTICE] Jenkins Light terminated!")
-            all_off()
+            all_tower_off()
+            all_hat_off()
             keepAlive = False
 
-
+if automationhat.is_automation_hat():
+    automationhat.light.power.on()
 main()

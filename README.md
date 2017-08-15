@@ -1,9 +1,10 @@
-# Raspberry Pi Tower Light
-<img src="images/jenkins_tower_light_logo.png" alt="Jenkins Tower Light Logo" title="Jenkins Tower Light Logo"  height="100" />
+<img src="images/jenkins_tower_light_logo.png" alt="Jenkins Tower Light Logo" title="Jenkins Tower Light Logo"  style="max-width:100%;" />
 
-Python script to control a 12V LED Tower light using a Raspberry Pi.
+Python script to control a LED Tower light using a Raspberry Pi.
 
-The script is initially created to control a 12V LED Tower light. The script can either be used with the Automation HAT/pHAT from Pimoroni or with the custom build HAT from the initial release of the script. More information about the custom HAT can be found in the `diy_hat` directory. If you don't need to switch high powered LED's you can still use this project with 3V LED's connected directly to the GPIO pins.   
+The script has two versions available. The first version of the script is using the GPIO outputs directly which can be used with a custom HAT to switch higher current or directly to switch 3V LED's. The second version is created using the Automation HAT/pHAT library from Pimoroni.
+
+More information about the custom HAT can be found in the `diy_hat` directory.  
 
 <img src="images/autohat_360.png" alt="Automation HAT/pHAT logo" title="Automation HAT/pHAT logo" />
 
