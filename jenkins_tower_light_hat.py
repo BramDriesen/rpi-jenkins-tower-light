@@ -127,6 +127,8 @@ def check_jobs_build_status():
 
 
 def check_jobs_building():
+    if automationhat.is_automation_hat():
+        automationhat.light.comms.on()
     global building
     jobs = cfg.jobs
     building = 0
@@ -145,6 +147,8 @@ def check_jobs_building():
     else:
         building = False
         check_jobs_build_status()
+    if automationhat.is_automation_hat():
+        automationhat.light.comms.off()
 
 
 # ---------------------------------------------------- #
