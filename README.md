@@ -74,13 +74,15 @@ Using your cursor keys scroll to the bottom and add the following line :
 
 For the Automation HAT/pHAT:
 ```sh
-python /path/to/the/script/rpi-jenkins-tower-light/jenkins_tower_light_hat.py &
+python home/pi/rpi-jenkins-tower-light/jenkins_tower_light_hat.py &
 ```
 
 For the DIY HAT
 ```sh
-python /path/to/the/script/rpi-jenkins-tower-light/jenkins_tower_light_gpio.py &
+python home/pi/rpi-jenkins-tower-light/jenkins_tower_light_gpio.py &
 ```
+
+Note: If you cloned the directory in a different location be sure to change this path to correspond with your location.
 
 Reboot your Raspberry Pi:
 ```sh
