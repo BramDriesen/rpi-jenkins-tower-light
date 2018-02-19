@@ -4,20 +4,14 @@ Python script to control a LED Tower light using a Raspberry Pi.
 
 The script has two versions available. The first version of the script is using the GPIO outputs directly which can be used with a custom HAT to switch higher current or directly to switch 3V LED's. The second version is created using the Automation HAT/pHAT library from Pimoroni.
 
-More information about the custom HAT can be found in the `diy_hat` directory.  
+More information about the custom HAT can be found in the `diy_hat` directory.
 
 <img src="images/autohat_360.png" alt="Automation HAT/pHAT logo" title="Automation HAT/pHAT logo" />
-
-**TODO**: To be rewritten.
-
-The program will use 4/5 GPIO outputs to send a signal to a the main board to switch 12V. More details about the board can be found below. Of course if you would like to add functionality more and/or other GPIO outputs will be used.
-
-If you don't need to switch 12V you can still use this project without any hardware to control 3V leds with the GPIO pins.
 
 <img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
 
 ## Installing
-**TODO**: A install script will be created limiting the use of custom actions like this.
+**TODO**: A install script should be created limiting the use of custom actions like this.
 
 
 ### Manual installation
@@ -44,7 +38,7 @@ cp default-config.py config.py
 
 Edit the configuration file with your information
  - Jenkins URL
- - Username and Password. 
+ - Username and Password.
  - Jobs (needs to be an array, for 1 item the structure looks like this `jobs = ['job-name-1']` )
  - GPIO outputs (only needed fot the DIY HAT)
 
@@ -119,7 +113,13 @@ A special thanks to the awesome pirates from Pimoroni for supporting this projec
 
 <img src="images/pimoroni.png" alt="Pimoroni logo" title="Pimoroni logo" height="100"/>
 
+### Featured project
+The original version of this project was featured in [The MagPi Issue 46][5]!
+
+<img src="images/TheMagPi46.png" alt="Featured in The MagPi Issue 46" title="Featured in The MagPi Issue 46"  width="300" />
+
 [1]: https://github.com/pycontribs/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
 [4]: https://github.com/pimoroni/automation-hat
+[5]: https://www.raspberrypi.org/magpi/issues/46/
