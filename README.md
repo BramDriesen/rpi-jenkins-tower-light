@@ -11,12 +11,16 @@ More information about the custom HAT can be found in the `diy_hat` directory.
 <img src="images/tower-crop.gif" alt="Adafruit LED Tower (gif)" title="Adafruit LED Tower (gif)"  width="100" />
 
 ## Installing
-**TODO**: A install script should be created limiting the use of custom actions like this.
 
+### Automated Installation
+
+```sh
+sudo bash -c "$(curl -sL https://raw.githubusercontent.com/BramDriesen/rpi-jenkins-tower-light/master/install.sh)"
+```
 
 ### Manual installation
 
-Install the [Jenkinsapi][1] Pythin library
+Install the [Jenkinsapi][1] Python library
 ```sh
 sudo pip install jenkinsapi --upgrade
 ```
@@ -103,7 +107,7 @@ At startup of the scripts all light's will be toggled once.
 
 ### Features to add / Todo list
 - [ ] Improve code (Mainly blinking functions)
-- [ ] Installation script
+- [x] Installation script
 - [ ] Web interface to configure the settings (probably not going to do this)
 - [ ] Find a use case for the buzzer.
 
