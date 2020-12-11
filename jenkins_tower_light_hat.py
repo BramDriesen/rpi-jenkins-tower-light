@@ -7,6 +7,7 @@ import jenkinsapi
 import config as cfg
 import signal
 import automationhat
+import copy
 from jenkinsapi.jenkins import Jenkins
 from requests.exceptions import ConnectionError
 
@@ -91,6 +92,19 @@ def set_error(value):
         print("[ERROR] Only supply True or False to the setError function")
 
 
+# Get all the jobs by a given name.
+def get_jenkins_job_by_name(name):
+    # Support sub-folders.
+    if '/' in name
+        folder, name = name.rsplit('/', 1)
+        server = copy.deepcopy(J)
+        folder_path = '/'.join([f'job/{x}' for x in folder.split('/'])
+        server.baseurl = server.baseurl + '/' + folder_path
+        return server.get_job(name)
+    else:
+        return J.get_job(name)
+
+
 def check_jobs_build_status():
     if automationhat.is_automation_hat():
         automationhat.light.comms.on()
@@ -101,7 +115,7 @@ def check_jobs_build_status():
 
     for item in jobs:
         try:
-            job = J.get_job(item)
+            job = get_jenkins_job_by_name(item)
         except jenkinsapi.custom_exceptions.UnknownJob:
             set_error(True)
         else:
@@ -135,7 +149,7 @@ def check_jobs_building():
 
     for item in jobs:
         try:
-            job = J.get_job(item)
+            job = get_jenkins_job_by_name(item)
         except jenkinsapi.custom_exceptions.UnknownJob:
             set_error(True)
         else:

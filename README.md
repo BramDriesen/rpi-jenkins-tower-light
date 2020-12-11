@@ -43,7 +43,9 @@ cp default-config.py config.py
 Edit the configuration file with your information
  - Jenkins URL
  - Username and Password.
- - Jobs (needs to be an array, for 1 item the structure looks like this `jobs = ['job-name-1']` )
+ - Jobs
+    - Needs to be an array even if you have 1 item
+    - Supports sub-folders by using a `/` in the name e.g. `folder/job/master`
  - GPIO outputs (only needed fot the DIY HAT)
 
 #### Configuration file for the **Automation HAT/pHAT**
