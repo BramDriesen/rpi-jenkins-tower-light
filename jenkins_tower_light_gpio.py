@@ -84,7 +84,7 @@ def get_jenkins_job_by_name(name):
     if '/' in name:
         folder, name = name.rsplit('/', 1)
         server = copy.deepcopy(J)
-        folder_path = '/'.join([f'job/{x}' for x in folder.split('/'])
+        folder_path = '/'.join([f'job/{x}' for x in folder.split('/')])
         server.baseurl = server.baseurl + '/' + folder_path
         return server.get_job(name)
     else:
