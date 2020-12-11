@@ -22,7 +22,7 @@ sudo bash -c "$(curl -sL https://raw.githubusercontent.com/BramDriesen/rpi-jenki
 
 Install the [Jenkinsapi][1] Python library
 ```sh
-sudo pip install jenkinsapi --upgrade
+sudo pip3 install jenkinsapi --upgrade
 ```
 
 Install the [Automation HAT/pHAT][4] library
@@ -80,12 +80,12 @@ Using your cursor keys scroll to the bottom and add the following line :
 
 For the Automation HAT/pHAT:
 ```sh
-python home/pi/rpi-jenkins-tower-light/jenkins_tower_light_hat.py &
+python3 home/pi/rpi-jenkins-tower-light/jenkins_tower_light_hat.py &
 ```
 
 For the DIY HAT
 ```sh
-python home/pi/rpi-jenkins-tower-light/jenkins_tower_light_gpio.py &
+python3 home/pi/rpi-jenkins-tower-light/jenkins_tower_light_gpio.py &
 ```
 
 Note: If you cloned the directory in a different location be sure to change this path to correspond with your location.

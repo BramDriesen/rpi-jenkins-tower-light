@@ -27,16 +27,16 @@ is_root(){
 }
 
 if_pip(){
-    if command -v pip --version >/dev/null; then
+    if command -v pip3 --version >/dev/null; then
         :
     else
       $red
       echo "Pip not installed"
       $yellow
-      echo "Installing pip ..."
+      echo "Installing pip3 ..."
       echo
       $reset
-      apt-get update && apt-get install python-pip
+      apt-get update && apt-get install python3-pip
     fi
 }
 
@@ -44,7 +44,7 @@ install_pip_libs(){
     $green
     echo "Installing jenkinsapi python library..."
     $reset
-    if pip install jenkinsapi --upgrade; then
+    if pip3 install jenkinsapi --upgrade; then
         :
     else
         $red
@@ -174,7 +174,7 @@ enable_service(){
         :
     else
     echo "Enabling Jenkins Tower Light to start at boot..."
-        echo "python /home/pi/${repo_dir}/jenkins_tower_light_hat.py &" >> /etc/rc.local
+        echo "python3 /home/pi/${repo_dir}/jenkins_tower_light_hat.py &" >> /etc/rc.local
     fi
     $reset
 }
