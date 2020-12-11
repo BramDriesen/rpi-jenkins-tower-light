@@ -81,7 +81,7 @@ def set_error(value):
 # Get all the jobs by a given name.
 def get_jenkins_job_by_name(name):
     # Support sub-folders.
-    if '/' in name
+    if '/' in name:
         folder, name = name.rsplit('/', 1)
         server = copy.deepcopy(J)
         folder_path = '/'.join([f'job/{x}' for x in folder.split('/'])
