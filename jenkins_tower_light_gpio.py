@@ -6,18 +6,18 @@ import threading
 import jenkinsapi
 import config as cfg
 import signal
+import copy
 from jenkinsapi.jenkins import Jenkins
 from requests.exceptions import ConnectionError
 
 # Set the GPIO mode.
 GPIO.setmode(GPIO.BCM)
 
-# Get a GPIO code for an string
-
-
+# Get a GPIO code for a string
 def getcode(value):
     value = value.lower()
     return cfg.gpios.get(value, cfg.gpios.get('red'))
+
 
 # GPIO Setup
 GPIO.setwarnings(False)
@@ -78,6 +78,19 @@ def set_error(value):
         print("[ERROR] Only supply True or False to the setError function")
 
 
+# Get all the jobs by a given name.
+def get_jenkins_job_by_name(name):
+    # Support sub-folders.
+    if '/' in name:
+        folder, name = name.rsplit('/', 1)
+        server = copy.deepcopy(J)
+        folder_path = '/'.join([f'job/{x}' for x in folder.split('/')])
+        server.baseurl = server.baseurl + '/' + folder_path
+        return server.get_job(name)
+    else:
+        return J.get_job(name)
+
+
 def check_jobs_build_status():
     jobs = cfg.jobs
     success = 0
@@ -86,7 +99,7 @@ def check_jobs_build_status():
 
     for item in jobs:
         try:
-            job = J.get_job(item)
+            job = get_jenkins_job_by_name(item)
         except jenkinsapi.custom_exceptions.UnknownJob:
             set_error(True)
         else:
@@ -116,7 +129,7 @@ def check_jobs_building():
 
     for item in jobs:
         try:
-            job = J.get_job(item)
+            job = get_jenkins_job_by_name(item)
         except jenkinsapi.custom_exceptions.UnknownJob:
             set_error(True)
         else:

@@ -22,7 +22,7 @@ sudo bash -c "$(curl -sL https://raw.githubusercontent.com/BramDriesen/rpi-jenki
 
 Install the [Jenkinsapi][1] Python library
 ```sh
-sudo pip install jenkinsapi --upgrade
+sudo pip3 install jenkinsapi --upgrade
 ```
 
 Install the [Automation HAT/pHAT][4] library
@@ -43,7 +43,9 @@ cp default-config.py config.py
 Edit the configuration file with your information
  - Jenkins URL
  - Username and Password.
- - Jobs (needs to be an array, for 1 item the structure looks like this `jobs = ['job-name-1']` )
+ - Jobs
+    - Needs to be an array even if you have 1 item
+    - Supports sub-folders by using a `/` in the name e.g. `folder/job/master`
  - GPIO outputs (only needed fot the DIY HAT)
 
 #### Configuration file for the **Automation HAT/pHAT**
@@ -70,7 +72,7 @@ gpios = {
 
 Make sure to enable the setting "Wait for network on boot" in the Raspberry Pi config screen. Use `sudo raspi-config` to go to the settings. Also set the configuration to boot into the terminal.
 
-Edit your `rc.local` file to make the script run at boot. Edit it using the command:
+Edit your `rc.local` (or use any other method as [described here][6]) file to make the script run at boot. Edit it using the command:
 ```sh
 sudo nano /etc/rc.local
 ```
@@ -78,12 +80,12 @@ Using your cursor keys scroll to the bottom and add the following line :
 
 For the Automation HAT/pHAT:
 ```sh
-python home/pi/rpi-jenkins-tower-light/jenkins_tower_light_hat.py &
+python3 home/pi/rpi-jenkins-tower-light/jenkins_tower_light_hat.py &
 ```
 
 For the DIY HAT
 ```sh
-python home/pi/rpi-jenkins-tower-light/jenkins_tower_light_gpio.py &
+python3 home/pi/rpi-jenkins-tower-light/jenkins_tower_light_gpio.py &
 ```
 
 Note: If you cloned the directory in a different location be sure to change this path to correspond with your location.
@@ -105,11 +107,13 @@ At startup of the scripts all light's will be toggled once.
     - Red: An error occurred (connection or authentication)
     - Yellow: One or more jobs are building
 
-### Features to add / Todo list
-- [ ] Improve code (Mainly blinking functions)
-- [x] Installation script
-- [ ] Web interface to configure the settings (probably not going to do this)
-- [ ] Find a use case for the buzzer.
+### Features to add / Todo list / Contributing
+If you want to help contributing to this library have a look at the following list:
+
+- [ ] Improve code (Mainly blinking functions).
+- [ ] Find a use case for the buzzer (if any).
+- [ ] Check if it's possible to use other Jenkins authentication methods
+- [ ] Some form of automated test/code coverage.
 
 ### Extra information
 The tower light I am using can be bought from [Adafruit][2] or other resellers that handle Adafruit products like [Pimoroni][3] where I got mine. You can probably also use other types of tower lights but be careful with operating voltages since most of the tower lights are meant for industrial applications.
@@ -129,3 +133,4 @@ The original version of this project was featured in [The MagPi Issue 46][5]!
 [3]: https://shop.pimoroni.com/products/tower-light-red-yellow-green-alert-light-with-buzzer-12vdc
 [4]: https://github.com/pimoroni/automation-hat
 [5]: https://www.raspberrypi.org/magpi/issues/46/
+[6]: https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/
