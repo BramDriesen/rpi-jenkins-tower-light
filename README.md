@@ -1,5 +1,13 @@
 <img src="images/jenkins_tower_light_logo.png" alt="Jenkins Tower Light Logo" title="Jenkins Tower Light Logo"  style="max-width:100%;" />
 
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://github.com/BramDriesen/rpi-jenkins-tower-light/releases)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![Package Control total downloads](https://img.shields.io/packagecontrol/dt/SwitchDictionary.svg)](https://packagecontrol.io/packages/SwitchDictionary)
+[![Package Control month downloads](https://img.shields.io/packagecontrol/dm/SwitchDictionary.svg)](https://packagecontrol.io/packages/SwitchDictionary)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+
 Python script to control a LED Tower light using a Raspberry Pi.
 
 The script has two versions available. The first version of the script is using the GPIO outputs directly which can be used with a custom HAT to switch higher current or directly to switch 3V LED's. The second version is created using the Automation HAT/pHAT library from Pimoroni.
@@ -127,6 +135,9 @@ A special thanks to the awesome pirates from Pimoroni for supporting this projec
 The original version of this project was featured in [The MagPi Issue 46][5]!
 
 <img src="images/TheMagPi46.png" alt="Featured in The MagPi Issue 46" title="Featured in The MagPi Issue 46"  width="300" />
+
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
+
 
 [1]: https://github.com/pycontribs/jenkinsapi
 [2]: https://www.adafruit.com/products/2993
