@@ -31,7 +31,7 @@ if_pip(){
         :
     else
       $red
-      echo "Pip not installed"
+      echo "Pip3 not installed"
       $yellow
       echo "Installing pip3 ..."
       echo
@@ -42,7 +42,7 @@ if_pip(){
 
 install_pip_libs(){
     $green
-    echo "Installing jenkinsapi python library..."
+    echo "Installing 'jenkinsapi' Python library..."
     $reset
     if pip3 install jenkinsapi --upgrade; then
         :
@@ -65,9 +65,9 @@ clone_repo(){
         :
     else
       $red
-      echo "Git not installed"
+      echo "GIT not installed"
       $yellow
-      echo "Installing pip ..."
+      echo "Installing GIT ..."
       echo
       $reset
       apt-get update && apt-get install git
@@ -174,7 +174,9 @@ enable_service(){
         :
     else
     echo "Enabling Jenkins Tower Light to start at boot..."
+        sed -e s/exit 0//g -i *
         echo "python3 /home/pi/${repo_dir}/jenkins_tower_light_hat.py &" >> /etc/rc.local
+        echo "exit 0" >> /etc/rc.local
     fi
     $reset
 }
